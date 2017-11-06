@@ -104,8 +104,14 @@ if (
                         $columns [$k] = ltrim ($columns[$k], '"');
                         $columns [$k] = rtrim ($columns[$k], '"');
                         $columns [$k] = "" . str_replace('-', '_', $columns [$k]);
-                        
-                        $columns [$k] = 'f'.$columns[$k]  . " STRING";
+                        $columns [$k] = "" . str_replace('(', '_', $columns [$k]);
+                        $columns [$k] = "" . str_replace(')', '_', $columns [$k]);
+                        $columns [$k] = "" . str_replace('.', '_', $columns [$k]);
+                        $columns [$k] = "" . str_replace('/', '_', $columns [$k]);
+                        $columns [$k] = "" . str_replace('\\', '_', $columns [$k]);
+                        $columns [$k] = "" . str_replace(' ', '_', $columns [$k]);
+
+                        $columns [$k] = 'f'. $columns[$k]  . " STRING";
                     }
                 } else {
                     for ($k = 0; $k < $total_columns; $k++) { 
