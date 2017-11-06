@@ -99,12 +99,13 @@ if (
                     for ($k = 0; $k < $total_columns; $k++) {
                         $columns [$k] = trim ($columns [$k]);
                         // we need to remove any characters that would be an illegal name
-                        $columns [$k] = "" . str_replace('-', '_', $columns [$k]) . " STRING";
+                        
                         // if the first character and the end character is quote, we need to remove it. 
                         $columns [$k] = ltrim ($columns[$k], '"');
                         $columns [$k] = rtrim ($columns[$k], '"');
-
-                        $columns [$k] = 'f'.$columns[$k];
+                        $columns [$k] = "" . str_replace('-', '_', $columns [$k]);
+                        
+                        $columns [$k] = 'f'.$columns[$k]  . " STRING";
                     }
                 } else {
                     for ($k = 0; $k < $total_columns; $k++) { 
